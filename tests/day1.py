@@ -1,5 +1,6 @@
 import unittest
 from functions.day1 import solve_captcha_day1_1, solve_captcha_shift
+from functions.helpers import get_file_content_as_int_list
 
 
 class MyTestCase(unittest.TestCase):
@@ -53,6 +54,11 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(solve_captcha_shift(example4, int(len(example4) / 2)), 12)
         self.assertEqual(solve_captcha_shift(example5, int(len(example5) / 2)), 4)
 
+    def test_solutions(self):
+        input_day1 = get_file_content_as_int_list('day1.txt')
+        self.assertEqual(solve_captcha_day1_1(input_day1), 1144)
+        self.assertEqual(solve_captcha_shift(input_day1), 1144)
+        self.assertEqual(solve_captcha_shift(input_day1, int(len(input_day1) / 2)), 1194)
 
 if __name__ == '__main__':
     unittest.main()
