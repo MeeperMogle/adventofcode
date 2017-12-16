@@ -31,11 +31,6 @@ class MyTestCase(unittest.TestCase):
         example3 = [1, 2, 3, 4]
         example4 = [9, 1, 2, 1, 2, 1, 2, 9]
 
-        self.assertEqual(solve_captcha_shift(example1), 3)
-        self.assertEqual(solve_captcha_shift(example2), 4)
-        self.assertEqual(solve_captcha_shift(example3), 0)
-        self.assertEqual(solve_captcha_shift(example4), 9)
-
         self.assertEqual(solve_captcha_shift(example1), solve_captcha_day1_1(example1))
         self.assertEqual(solve_captcha_shift(example2), solve_captcha_day1_1(example2))
         self.assertEqual(solve_captcha_shift(example3), solve_captcha_day1_1(example3))
