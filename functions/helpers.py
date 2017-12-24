@@ -1,14 +1,14 @@
-def _get_file_content_as_string(filename):
+def get_file_content_as_string(filename):
     with open('../input/' + filename, 'r') as file:
         return file.read()
 
 
-def _get_file_content_as_lines_list(filename):
-    return _get_file_content_as_string(filename).split('\n')
+def get_file_content_as_lines_list(filename):
+    return get_file_content_as_string(filename).split('\n')
 
 
 def get_file_content_as_int_list(filename):
-    content = _get_file_content_as_string(filename)
+    content = get_file_content_as_string(filename)
     new_list = []
 
     for char in content:
@@ -18,7 +18,7 @@ def get_file_content_as_int_list(filename):
 
 
 def get_tvs_file_content_as_int_spreadsheet(filename):
-    lines = _get_file_content_as_lines_list(filename)
+    lines = get_file_content_as_lines_list(filename)
     outer_list = []
 
     for line in lines:
@@ -29,4 +29,4 @@ def get_tvs_file_content_as_int_spreadsheet(filename):
 
 
 def get_file_content_as_single_int(filename):
-    return int(_get_file_content_as_string(filename))
+    return int(get_file_content_as_string(filename))
