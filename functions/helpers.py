@@ -7,6 +7,10 @@ def get_file_content_as_lines_list(filename):
     return get_file_content_as_string(filename).split('\n')
 
 
+def get_file_content_as_lines_int_list(filename):
+    return list(map(lambda s: int(s), get_file_content_as_lines_list(filename)))
+
+
 def get_file_content_as_int_list(filename):
     content = get_file_content_as_string(filename)
     new_list = []
