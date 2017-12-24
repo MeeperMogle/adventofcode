@@ -1,5 +1,5 @@
 import unittest
-from functions.day4 import passphrase_is_valid
+from functions.day4 import passphrase_is_valid, passphrase_is_valid_no_anagrams
 from functions.helpers import get_file_content_as_lines_list
 
 
@@ -21,12 +21,18 @@ class MyTestCase(unittest.TestCase):
     def test_solutions(self):
         input_day4 = get_file_content_as_lines_list('day4.txt')
 
-        valid_phrases = 0
+        valid_phrases_v1 = 0
+        valid_phrases_v2 = 0
 
         for passphrase in input_day4:
-            valid_phrases += 1 if passphrase_is_valid(passphrase) else 0
+            valid_phrases_v1 += 1 if passphrase_is_valid(passphrase) else 0
+            valid_phrases_v2 += 1 if passphrase_is_valid_no_anagrams(passphrase) else 0
 
-        self.assertEqual(valid_phrases, 325)
+        print('Part one:', valid_phrases_v1)
+        print('Part two:', valid_phrases_v2)
+
+        self.assertEqual(valid_phrases_v1, 325)
+        self.assertEqual(valid_phrases_v2, 119)
 
 
 if __name__ == '__main__':
