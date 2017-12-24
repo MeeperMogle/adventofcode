@@ -30,6 +30,16 @@ class MyTestCase(unittest.TestCase):
         input_list = [0, 3, 0, 1, -3]
         self.assertEqual(jumps_required_to_escape_offsets(input_list), 5)
 
+    def test_second(self):
+        # Now, the jumps are even stranger: after each jump, if the offset was three or more, instead decrease it by 1.
+        # Otherwise, increase it by 1 as before.
+        #
+        # Using this rule with the above example, the process now takes 10 steps, and the offset values after finding
+        # the exit are left as 2 3 2 3 -1.
+        input_list = [0, 3, 0, 1, -3]
+        self.assertEqual(jumps_required_to_escape_offsets(input_list, True), 10)
+
     def test_solutions(self):
         input_day5 = get_file_content_as_lines_int_list('day5.txt')
-        self.assertEqual(jumps_required_to_escape_offsets(input_day5), 391540)
+        self.assertEqual(jumps_required_to_escape_offsets(input_day5[:]), 391540)
+        self.assertEqual(jumps_required_to_escape_offsets(input_day5[:], True), 30513679)
