@@ -1,20 +1,24 @@
-def find_highest_index(list):
-    highest = max(list)
-    return list.index(highest)
+def find_highest_index(the_list):
+    highest = max(the_list)
+    return the_list.index(highest)
 
 
-def redistributed_to_others(list, index):
-    other_list = list[:]
-    value = other_list[index]
-    sharing = len(other_list) - 1
-    keep = value % sharing
-    each_get = int(value / sharing)
-    other_list[index] = keep
+def give_if_store_has_left(the_list, index_target, index_store):
+    still_to_distribute = the_list[index_store]
+    if still_to_distribute > 0:
+        the_list[index_store] -= 1
+        the_list[index_target] += 1
 
-    for i in range(0, len(other_list)):
-        if i == index:
-            continue
-        other_list[i] += each_get
+
+def redistributed_to_others(the_list, index):
+    other_list = the_list[:]
+
+    current_index = index + 1 if index + 1 < len(the_list) else 0
+
+    while current_index != index:
+        give_if_store_has_left(other_list, index_target=current_index, index_store=index)
+        current_index = current_index + 1 if current_index + 1 < len(the_list) else 0
+
     return other_list[:]
 
 
